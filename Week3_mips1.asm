@@ -1,6 +1,6 @@
 .data
 	A:	.asciiz "Alpha "	#以下各串都是输入所对应字符（区分大小写）时所要输出的串
-	B:	.asciiz "Bravo "
+	B:	.asciiz "Bravo "	#举个例子，比如我们要是输入一个B，我们希望程序输出的是Bravo
 	C:	.asciiz "China "
 	D:	.asciiz "Delta "
 	E:	.asciiz "Echo "
@@ -61,7 +61,7 @@
 	num8:	.asciiz "Eighth "
 	num9:	.asciiz "Ninth "
 	num0:	.asciiz "zero "
-	name_and_id:	.asciiz "\r\nname: Ximing Song"	#作者的姓名和ID
+	name_and_id:	.asciiz "\r\nname: Ximing Song"	#作者的姓名
 
         .text
         .globl main
@@ -74,7 +74,7 @@ next_a: bne $v0, 'a', next_b	#依次判断该字符是否是a,b,c,……,A,B,C,�
         la $a0, a
         syscall
         j main
-next_b: bne $v0, 'b', next_c
+next_b: bne $v0, 'b', next_c	#举个例子，比如我们检测到的是b，则我们跳到b对应的部分程序并输出bravo，如果不是b则进入next_c并检测是不是c
         li $v0, 4
         la $a0, b
         syscall
