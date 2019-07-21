@@ -1,5 +1,5 @@
 .data
-	A:	.asciiz "Alpha "	#ÒÔÏÂ¸÷´®¶¼ÊÇÊäÈëËù¶ÔÓ¦×Ö·û£¨Çø·Ö´óÐ¡Ð´£©Ê±ËùÒªÊä³öµÄ´®
+	A:	.asciiz "Alpha "	#ä»¥ä¸‹å„ä¸²éƒ½æ˜¯è¾“å…¥æ‰€å¯¹åº”å­—ç¬¦ï¼ˆåŒºåˆ†å¤§å°å†™ï¼‰æ—¶æ‰€è¦è¾“å‡ºçš„ä¸²
 	B:	.asciiz "Bravo "
 	C:	.asciiz "China "
 	D:	.asciiz "Delta "
@@ -61,16 +61,16 @@
 	num8:	.asciiz "Eighth "
 	num9:	.asciiz "Ninth "
 	num0:	.asciiz "zero "
-	name_and_id:	.asciiz "\r\nname: Ximing Song"	#×÷ÕßµÄÐÕÃûºÍID
+	name_and_id:	.asciiz "\r\nname: Ximing Song"	#ä½œè€…çš„å§“åå’ŒID
 
         .text
         .globl main
-main:   li $v0, 12		#³ÌÐò¿ªÊ¼µÄµØ·½
-        syscall			#ÊäÈëÒ»¸ö×Ö·û£¬ÅÐ¶ÏÆäÊÇ·ñÎª'?'£¬ÈôÊÇ£¬Ôò½øÈë½áÊø´¦ÀíÄ£¿é
+main:   li $v0, 12		#ç¨‹åºå¼€å§‹çš„åœ°æ–¹
+        syscall			#è¾“å…¥ä¸€ä¸ªå­—ç¬¦ï¼Œåˆ¤æ–­å…¶æ˜¯å¦ä¸º'?'ï¼Œè‹¥æ˜¯ï¼Œåˆ™è¿›å…¥ç»“æŸå¤„ç†æ¨¡å—
         beq  $v0, '?', stop
         
-next_a: bne $v0, 'a', next_b	#ÒÀ´ÎÅÐ¶Ï¸Ã×Ö·ûÊÇ·ñÊÇa,b,c,¡­¡­,A,B,C,¡­¡­,1,2,3,¡­¡­,9,0¡£ÈôÊÇ£¬ÔòÊä³ö¶ÔÓ¦µÄ´®£¬Ìø×ªµ½main£¬½øÐÐÏÂÒ»´ÎÊäÈëÓëÅÐ¶Ï£¬Èô¶¼²»ÊÇ£¬ÔòÊä³ö'*'£¬Ìø×ªµ½main£¬½øÐÐÏÂÒ»´ÎÊäÈëÓëÅÐ¶Ï¡£
-        li $v0, 4		#ÏÂÍ¬£¬²»ÔÙ×¸Êö
+next_a: bne $v0, 'a', next_b	#ä¾æ¬¡åˆ¤æ–­è¯¥å­—ç¬¦æ˜¯å¦æ˜¯a,b,c,â€¦â€¦,A,B,C,â€¦â€¦,1,2,3,â€¦â€¦,9,0ã€‚è‹¥æ˜¯ï¼Œåˆ™è¾“å‡ºå¯¹åº”çš„ä¸²ï¼Œè·³è½¬åˆ°mainï¼Œè¿›è¡Œä¸‹ä¸€æ¬¡è¾“å…¥ä¸Žåˆ¤æ–­ï¼Œè‹¥éƒ½ä¸æ˜¯ï¼Œåˆ™è¾“å‡º'*'ï¼Œè·³è½¬åˆ°mainï¼Œè¿›è¡Œä¸‹ä¸€æ¬¡è¾“å…¥ä¸Žåˆ¤æ–­ã€‚
+        li $v0, 4		#ä¸‹åŒï¼Œä¸å†èµ˜è¿°
         la $a0, a
         syscall
         j main
@@ -383,8 +383,8 @@ other:	li $v0, 11
 	li $a0, '*'
 	syscall
 	j main
-stop:	li $v0, 4		#³ÌÐò½áÊøÊ±£¬ÏÈÊä³öÒ»¸ö»»ÐÐ£¬ÔÙÊä³ö×÷ÕßµÄÐÕÃûºÍÑ§ºÅ¡£
+stop:	li $v0, 4		#ç¨‹åºç»“æŸæ—¶ï¼Œå…ˆè¾“å‡ºä¸€ä¸ªæ¢è¡Œï¼Œå†è¾“å‡ºä½œè€…çš„å§“åã€‚
 	la $a0, name_and_id
 	syscall
-	li $v0, 10		#³ÌÐò½áÊø
+	li $v0, 10		#ç¨‹åºç»“æŸ
 	syscall
